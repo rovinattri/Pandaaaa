@@ -268,6 +268,30 @@ h.remove();
 
 setInterval(createHeart,300)
     
+
+const memoryPhotos = [
+"IMG-20260515-WA0006.jpg",
+"IMG-20260520-WA0007.jpg",
+"WA_1785553059830.jpeg",
+"WA_1785553090716.jpeg"
+];
+
+let currentPhoto = 0;
+
+setInterval(() => {
+
+const img = document.getElementById("memoryPhoto");
+
+if(img){
+
+currentPhoto = (currentPhoto + 1) % memoryPhotos.length;
+
+img.src = memoryPhotos[currentPhoto];
+
+}
+
+}, 2000);  
+
 </script>
     
 <div class="page hide" id="promisePage">
@@ -416,13 +440,7 @@ but the best ones are captured by the heart ❤️
 
 <div class="gallery">
 
-<img src="IMG-20260515-WA0006.jpg">
-
-<img src="IMG-20260520-WA0007.jpg">
-
-<img src="WA_1785553059830.jpeg">
-
-<img src="WA_1785553090716.jpeg">
+<img id="memoryPhoto" src="IMG-20260515-WA0006.jpg" width="250" style="border-radius:20px;">
 
 </div>
 
