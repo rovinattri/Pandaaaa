@@ -1,38 +1,259 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Girlfriend Day ❤️</title>
 
-    <link rel="stylesheet" href="style.css">
+<title>Happy Girlfriend Day ❤️</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+    color:white;
+    text-align:center;
+    overflow:hidden;
+}
+
+.page{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.card{
+    width:85%;
+    max-width:600px;
+    background:rgba(255,255,255,0.2);
+    padding:30px;
+    border-radius:25px;
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 30px rgba(0,0,0,.2);
+}
+
+h1{
+    font-size:35px;
+}
+
+p{
+    font-size:18px;
+    line-height:1.7;
+}
+
+button{
+    padding:15px 35px;
+    border:none;
+    border-radius:30px;
+    font-size:18px;
+    margin:15px;
+    cursor:pointer;
+    color:#ff4d88;
+    font-weight:bold;
+}
+
+#no{
+    position:absolute;
+}
+
+.hide{
+    display:none;
+}
+
+.heart{
+    position:absolute;
+    animation:fall 5s linear infinite;
+}
+
+@keyframes fall{
+
+0%{
+transform:translateY(100vh);
+}
+
+100%{
+transform:translateY(-10vh);
+}
+
+}
+
+</style>
+
 </head>
+
 
 <body>
 
+
 <div id="hearts"></div>
 
-<section id="welcome" class="page">
 
-    <h1>Happy Girlfriend Day ❤️</h1>
+<div class="page" id="messagePage">
 
-    <h2>Arjoo ✨</h2>
+<div class="card">
 
-    <p>
-        A small surprise made with lots of love...
-    </p>
+<h1>
+Happy Girlfriend Day, Arjoo ❤️✨
+</h1>
 
-    <button id="startBtn">
-        Tap To Begin ❤️
-    </button>
 
-</section>
+<p>
 
-<script src="script.js"></script>
+It's your day my girl 🥺❤️
+
+<br><br>
+
+I just want you to know that you are really special to me.
+
+Keep smiling, keep shining ✨
+
+<br><br>
+
+
+Tum meri life ka wo special hissa ho jiske aane se bahut kuch beautiful lagne laga.
+
+<br><br>
+
+Tumhari smile mere liye bahut important hai aur tumhari khushi mere liye hamesha matter karti hai.
+
+<br><br>
+
+Mujhe pata hai life me kuch moments easy nahi the, lekin yaad rakhna tum bahut special ho.
+
+<br><br>
+
+I'm not the first but I'll be the last ❤️
+
+<br><br>
+
+Thank you meri life me aane ke liye aur mujh par trust karne ke liye.
+
+<br><br>
+
+Bas hamesha khush rehna aur apni cute si smile kabhi mat khona ❤️
+
+<br><br>
+
+Happy Girlfriend Day nooovvaaaa ❤️
+
+</p>
+
+
+<button onclick="openProposal()">
+Next ❤️
+</button>
+
+
+</div>
+
+</div>
+
+
+
+
+<div class="page hide" id="proposalPage">
+
+<div class="card">
+
+<h1>
+Will you be my forever partner? ❤️
+</h1>
+
+
+<p>
+Mere bachoo ki maa banogi? 🥺❤️
+</p>
+
+
+<button onclick="yesClick()">
+YES ❤️
+</button>
+
+
+<button id="no" onclick="noClick()">
+NO 😏
+</button>
+
+
+<h2 id="answer"></h2>
+
+
+</div>
+
+</div>
+
+
+
+
+<script>
+
+
+function openProposal(){
+
+document.getElementById("messagePage").style.display="none";
+
+document.getElementById("proposalPage").style.display="flex";
+
+}
+
+
+
+function yesClick(){
+
+document.getElementById("answer").innerHTML=
+"I knew it ❤️🥹 Forever with you ❤️";
+
+}
+
+
+
+function noClick(){
+
+let no=document.getElementById("no");
+
+no.style.left=Math.random()*80+"vw";
+
+no.style.top=Math.random()*80+"vh";
+
+document.getElementById("answer").innerHTML=
+"How dare you say NO 😏<br>Click on YES ❤️";
+
+}
+
+
+
+function createHeart(){
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML="❤️";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.fontSize=Math.random()*30+15+"px";
+
+document.getElementById("hearts").appendChild(h);
+
+
+setTimeout(()=>{
+
+h.remove();
+
+},5000);
+
+
+}
+
+
+setInterval(createHeart,300);
+
+
+
+</script>
+
 
 </body>
 </html>
